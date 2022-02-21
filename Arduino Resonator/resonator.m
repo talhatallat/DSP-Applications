@@ -1,0 +1,20 @@
+%tk_resonator.m
+ n=1;
+ y=0;
+ fs=8000;
+ fa=500;
+ Q=2*pi*fa/fs;
+ a=2*cos(Q);
+ ym1=1;
+ ym2=cos(Q);
+ while(n<200)
+ y=a*ym1-ym2;
+ ym2=ym1;
+ ym1=y;
+ yy(n)=y;
+ n=n+1;
+ end
+ yy=yy+1.1;
+ 
+ yy=yy*100;
+ plot(yy)
